@@ -22,7 +22,6 @@ This MySQL database project models a school system, managing information about s
 **Subjects**
 - `subject_id` - primary key
 - `subject_name` - varchar not null
-- `teacher_id` - foreign key not null
 
 **Departments**
 - `department_id` - primary key
@@ -37,7 +36,6 @@ This MySQL database project models a school system, managing information about s
 
 ### Foreign keys in Main Entities
 - Courses from Departments
-- Subjects from Professors
 - Professors from Departments
 - Departments from Professors
 

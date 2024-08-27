@@ -14,14 +14,13 @@ CREATE TABLE courses (
     course_name VARCHAR(255) NOT NULL,
     course_code VARCHAR(50) NOT NULL,
     year_level ENUM('1st year', '2nd year', '3rd year', '4th year') NOT NULL,
-    department_id INT NOT NULL
+    department_id INT NOT NULL,
     PRIMARY KEY (course_id)
 );
 
 CREATE TABLE subjects (
     subject_id INT NOT NULL AUTO_INCREMENT,
     subject_name VARCHAR(255) NOT NULL,
-    professor_id INT NOT NULL,
     PRIMARY KEY (subject_id)
 );
 
@@ -37,7 +36,7 @@ CREATE TABLE professors (
 CREATE TABLE departments (
     department_id INT NOT NULL AUTO_INCREMENT,
     department_name VARCHAR(255) NOT NULL,
-    department_head INT NOT NULL UNIQUE,
+    department_head INT UNIQUE,
     PRIMARY KEY (department_id)
 );
 
@@ -47,9 +46,6 @@ CREATE TABLE departments (
 
 ALTER TABLE courses
 ADD FOREIGN KEY (department_id) REFERENCES departments(department_id) ON DELETE CASCADE;
-
-ALTER TABLE subjects
-ADD FOREIGN KEY (professor_id) REFERENCES professors(professor_id) ON DELETE CASCADE;
 
 ALTER TABLE professors
 ADD FOREIGN KEY (department_id) REFERENCES departments(department_id) ON DELETE CASCADE;
